@@ -1,12 +1,17 @@
-from service.birds_services import *
-from model.declarative_bird import SuperiorTaxon
+from birds_services import *
+from declarative_birds import SuperiorTaxon
 
 st_service = SuperiorTaxonService()
 
-superior_taxon = SuperiorTaxon(reino = 'Animalia', philum = 'Chordata', taxon_class='Aves')
+superior_taxon = SuperiorTaxon(reino = 'Animalia', philum = 'Aguatia', taxon_class='Aves')
 
 st_service.add_superior_taxon(superior_taxon)
 
+superior_taxon = st_service.get_by_id(1)
+
+print(superior_taxon)
+
+print(st_service.get_all_superior_taxons())
 
 # from service.birds_services import *
 

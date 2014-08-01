@@ -1,16 +1,28 @@
+'''
+Module that provide the Model objects for the birds application.
+
+This module use the SqlAlchemy ORM library to work properly.
+'''
 import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String, Date
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy import create_engine
 
 Base = declarative_base()
 
 
 class SuperiorTaxon(Base):
-	"""Descrive the objet used to store and manipulate \ 
-	   a superior taxon for a bird """
+	"""Descrive the objet used to store and manipulate superior taxons \ 
+		To create a new object you jus have to call the \
+		constructor with all the members:
+		Example:
+			new_superior_taxon = SuperiorTaxon(reino = 'Animal', \
+												philum = 'philum = 'Chordata', \
+												taxon_class='Aves')
+		then passit to the respective Service or Dao
+	 """
 
 	__tablename__ = 'superior_taxon'
 
@@ -35,6 +47,7 @@ class Bird(Base):
 	bibliography = Column(String)
 	superior_taxon_id = Column(Integer, ForeignKey('superior_taxon.superior_taxon_id'))
 	superior_taxon = relationship(SuperiorTaxon)
+	# varieties = relationship(Variety, order_by="Variety.variedad_id", backref="bird")
 
 class Variety(Base):
 	__tablename__ = 'variety'
@@ -44,7 +57,7 @@ class Variety(Base):
 	sighting_place = Column(String)
 	sighting_date = Column(Date)
 	bird_id = Column(Integer, ForeignKey('bird.bird_id'))
-	bird = relationship(Bird)
+	bird = relationship(Bird, backref=backref('varieties', order_by=variedad_id))
 
 # engine = create_engine('sqlite:///../../db/birds.db')	
 
