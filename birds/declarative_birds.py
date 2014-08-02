@@ -32,8 +32,8 @@ class SuperiorTaxon(Base):
 	taxon_class = Column(String)
 
 	def __repr__(self):
-		return "<SuperiorTaxon(reino='%s', philum='%s', taxon_class='%s')>" % (
-		self.reino, self.philum, self.taxon_class)
+		return "<SuperiorTaxon(id='%d', reino='%s', philum='%s', taxon_class='%s')>" % (
+		0 if self.superior_taxon_id is None else self.superior_taxon_id, self.reino, self.philum, self.taxon_class)
 
 class Bird(Base):
 	__tablename__ = 'bird'

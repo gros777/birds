@@ -5,13 +5,13 @@ Import this module and then create a new DbSession object to
 manage the transsaction. After that you can use the apropiated class
 to perform querys or persisted new or manipulated objects.
 '''
-from declarative_birds import SuperiorTaxon, Base
+from birds.declarative_birds import SuperiorTaxon, Base
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
 
 # Private property to hold the 
-_db_string = 'sqlite:////Users/victor/MyProjects/pythonLearning/birds/db/birds.db'
+_db_string = 'sqlite:///db/birds.db'
 
 _ENGINE = create_engine(_db_string, echo=True)
 
@@ -23,6 +23,9 @@ class GenericDao(object):
 
 	def save(self, session, persisted_object):
 		session.add(persisted_object)
+		
+	def delete(self, session, persisted_object):
+		session.delete(persisted_object)
 
 class SuperiorTaxonDao(GenericDao):
 	"""Perform the data acces to the superior_taxon table"""
@@ -35,7 +38,7 @@ class SuperiorTaxonDao(GenericDao):
 			filter(SuperiorTaxon.philum == philum).\
 			filter(SuperiorTaxon.taxon_class == taxon_class)	
 
-		return query.all()
+		return query.first()
 
 	def get(self, session, superior_taxon_id):
 		"""
@@ -59,5 +62,5 @@ class SuperiorTaxonDao(GenericDao):
 		"""
 		return session.query(SuperiorTaxon).all()
 
-# class BirdDao(GenericDao):
-
+	def count(self, session):
+		return session.query(func.count(SuperiorTaxon.superior_taxon_id)).scalar()
