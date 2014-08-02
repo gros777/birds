@@ -10,7 +10,7 @@ config = {
     'download_url': 'birds.victorhernandez.me/download',
     'author_email': 'mail@victorhernandez.me.',
     'version': '0.1',
-    'install_requires': ['nose'],
+    'install_requires': ['nose', 'sqlalchemy'],
     'packages': ['birds'],
     'scripts': [],
     'name': 'birds'

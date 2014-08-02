@@ -7,6 +7,8 @@ Module to provide the bussnes logic for the birds application.
 from birds.daos import *
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
+import logging
+
 
 class ServiceError(Exception):
 	"""Exception raised for error in the services
@@ -17,13 +19,28 @@ class ServiceError(Exception):
 	def __init__(self, message):
 		self.message = message
 
+class SessionSingleton(object):
+	'''Class to provide a unique session across all the services
+	Methods:
+	 get_session() -- class method to retrieve the session
+	'''
+	_session = None
+
+	def get_session():
+		'''Method to retrieve the valid session for the services.
+		this returns the same DbSession object between calls.
+		'''
+		if SessionSingleton._session is None:
+			SessionSingleton._session = DbSession()
+		return SessionSingleton._session
+
 class SuperiorTaxonService(object):
 	_session = None
 	_st_dao = None
 
 	def __init__(self):
 		if SuperiorTaxonService._session is None:
-			self._session = DbSession()
+			self._session = SessionSingleton.get_session()
 			SuperiorTaxonService._session = self._session
 		self._st_dao = SuperiorTaxonDao()
 
@@ -53,6 +70,7 @@ class SuperiorTaxonService(object):
 			self._session.commit()
 		except Exception as e:
 			self._session.rollback()
+			logging.warning('Error during deleting entity ' + superior_taxon.__rpr__())
 			raise e
 
 	def get_by_id(self, taxon_id):

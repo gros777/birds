@@ -23,9 +23,10 @@ class GenericDao(object):
 
 	def save(self, session, persisted_object):
 		session.add(persisted_object)
-		
+
 	def delete(self, session, persisted_object):
 		session.delete(persisted_object)
+
 
 class SuperiorTaxonDao(GenericDao):
 	"""Perform the data acces to the superior_taxon table"""
@@ -49,10 +50,9 @@ class SuperiorTaxonDao(GenericDao):
 			id -- the id of the required object as an integer 
 		"""
 
-		query = session.query(SuperiorTaxon).\
-				filter(SuperiorTaxon.superior_taxon_id == superior_taxon_id)
+		return session.query(SuperiorTaxon).get(superior_taxon_id)
 
-		return query.one()
+		
 
 	def get_all(self, session):
 		"""Obtains all data from the superior_taxon table
@@ -63,4 +63,4 @@ class SuperiorTaxonDao(GenericDao):
 		return session.query(SuperiorTaxon).all()
 
 	def count(self, session):
-		return session.query(func.count(SuperiorTaxon.superior_taxon_id)).scalar()
+		return session.query(func.count(SuperiorTaxon.id)).scalar()
