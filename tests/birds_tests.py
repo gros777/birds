@@ -69,8 +69,11 @@ def test_superior_taxon_service():
     assert( (st_after_delete_count - st_initial_count) == 0)
 
 #@with_setup(setup, teardown)
-def test_SessionSingleton():
-    session =  SessionSingleton.get_session()
-    print(type(session))
-    assert(isinstance(session, DbSession))
+def test_Service():
+    session =  Service.get_session()
+    st_service = SuperiorTaxonService()
+    logging.info(hex(id(session)))
+    logging.info(hex(id(st_service._session)))
+    assert(hex(id(session)) == hex(id(st_service._session)))
+
 

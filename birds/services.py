@@ -19,29 +19,29 @@ class ServiceError(Exception):
 	def __init__(self, message):
 		self.message = message
 
-class SessionSingleton(object):
+class Service(object):
 	'''Class to provide a unique session across all the services
 	Methods:
 	 get_session() -- class method to retrieve the session
 	'''
 	_session = None
 
+	@staticmethod
 	def get_session():
 		'''Method to retrieve the valid session for the services.
 		this returns the same DbSession object between calls.
 		'''
-		if SessionSingleton._session is None:
-			SessionSingleton._session = DbSession()
-		return SessionSingleton._session
+		if Service._session is None:
+			Service._session = DbSession()
+		return Service._session
 
-class SuperiorTaxonService(object):
-	_session = None
+class SuperiorTaxonService(Service):
+
 	_st_dao = None
 
 	def __init__(self):
 		if SuperiorTaxonService._session is None:
-			self._session = SessionSingleton.get_session()
-			SuperiorTaxonService._session = self._session
+			Service.get_session()
 		self._st_dao = SuperiorTaxonDao()
 
 	def add_superior_taxon(self, superior_taxon):

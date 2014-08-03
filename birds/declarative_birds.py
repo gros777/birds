@@ -8,7 +8,7 @@ are subclases from sqlalchemy.ext.declarative.Base
 '''
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String, Date
+from sqlalchemy import Column, ForeignKey, Integer, String, Date, BLOB
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy import create_engine
@@ -44,7 +44,16 @@ class SuperiorTaxon(Base):
 		-1 if self.id is None else self.id, self.reino, self.philum, self.taxon_class)
 
 class Bird(Base):
-	'''
+	'''Represent a bird object in the application
+		Object Attributes:
+			id -- the unique identifier as a number
+			order -- the oder of the Animal as a string
+			family -- string that represent the family of the animal
+			genre -- string with the genry
+			species -- str with the species
+			common_name -- str with the name as he humans know it
+			bibliography -- str where it gets the information for this animal
+			superior_taxon_id -- SuperiorTaxon object in which this animal is classified
 	'''
 	__tablename__ = 'bird'
 
@@ -56,10 +65,11 @@ class Bird(Base):
 	common_name = Column(String)
 	bibliography = Column(String)
 	superior_taxon_id = Column(Integer, ForeignKey('superior_taxon.id'))
+	varieties = relationship("Variety", backref='bird', cascade='all, delete, delete-orphan')
 	
 	def __repr__(self):
-		return  (superior_taxon.__repr__ +
-		    "\n<Bird(id=%d, order=%s, family=%s, genre=%s, species=%s, \
+		return  (self.superior_taxon.__repr__() +
+		    "\n\t<Bird(id=%d, order=%s, family=%s, genre=%s, species=%s, \
 			common_name=%s, bibliography=%s>" % (-1 if self.id is None else self.id,
 			self.order, self.family, self.genre, self.species, self.common_name,
 			self.bibliography))
@@ -67,12 +77,13 @@ class Bird(Base):
 class Variety(Base):
 	__tablename__ = 'variety'
 
-	variedad_id = Column(Integer, primary_key=True)
+	id = Column(Integer, primary_key=True)
+	image = Column(BLOB)
 	descripcion = Column(String)
 	sighting_place = Column(String)
 	sighting_date = Column(Date)
 	bird_id = Column(Integer, ForeignKey('bird.id'))
-	bird = relationship(Bird, backref=backref('varieties', order_by=variedad_id))
+#	bird = relationship(Bird, backref=backref('varieties', order_by=id))
 
 # engine = create_engine('sqlite:///../../db/birds.db')	
 
