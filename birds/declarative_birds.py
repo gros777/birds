@@ -12,6 +12,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Date, BLOB
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy import create_engine
+from datetime import date, datetime
 
 Base = declarative_base()
 
@@ -69,8 +70,7 @@ class Bird(Base):
 	
 	def __repr__(self):
 		return  (self.superior_taxon.__repr__() +
-		    "\n\t<Bird(id=%d, order=%s, family=%s, genre=%s, species=%s, \
-			common_name=%s, bibliography=%s>" % (-1 if self.id is None else self.id,
+		    "\n\t<Bird(id=%d, order=%s, family=%s, genre=%s, species=%s, common_name=%s, bibliography=%s>" % (-1 if self.id is None else self.id,
 			self.order, self.family, self.genre, self.species, self.common_name,
 			self.bibliography))
 
@@ -79,10 +79,15 @@ class Variety(Base):
 
 	id = Column(Integer, primary_key=True)
 	image = Column(BLOB)
-	descripcion = Column(String)
+	description = Column(String)
 	sighting_place = Column(String)
-	sighting_date = Column(Date)
+	sighting_date = Column(Date, default=date.today)
 	bird_id = Column(Integer, ForeignKey('bird.id'))
+
+	def __repr__(self):
+		return (self.bird.__repr__() +
+			"\n\t\t<Variety(id=%d, description=%s, sighting_place=%s, sighting_date=%s" % (
+				self.id, self.description, self.sighting_place, self.sighting_date))
 #	bird = relationship(Bird, backref=backref('varieties', order_by=id))
 
 # engine = create_engine('sqlite:///../../db/birds.db')	

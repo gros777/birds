@@ -59,4 +59,28 @@ def test_BirdDao():
     b_dao.delete(session, modified_obj)
     session.commit()
 
+def test_Bird_dao_find_by():
+    b_dao = BirdDao()
+    filter_dict = {"species":"C. anna", 'order':'Apodiformes'}
+    result = b_dao.find_by(session, **filter_dict)
+    logging.info("Founded:\n%s", result[0])
+
+def test_VarietyDao():
+    b_dao = BirdDao()
+    bird = b_dao.get(session, 1)
+
+    variety_obj = Variety(description="Arizona", 
+        sighting_place="Greate Canyon")
+    variety_obj.bird = bird
+
+    logging.info("Bird:\n%s", bird)
+
+    v_dao = VarietyDao()
+    v_dao.save(session, variety_obj)
+    session.commit()
+
+    logging.info("Variety object after save:\n%s", variety_obj)
+
+
+
     

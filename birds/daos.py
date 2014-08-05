@@ -20,7 +20,13 @@ Base.metadata.bind = _ENGINE
 DbSession = sessionmaker(bind=_ENGINE)
 
 class GenericDao(object):
-	'''Provide the common
+	'''Provide the common functionalities to DAOs
+	To use it must be subclased and overide the default constructor to set the entity class field, example:
+		class ModelClassDao(GenericDao):
+			def __init__(self):
+				ModelClassDao.entity = ModelClass
+	Class fields:
+	 entity -- stores the Object class to which the operations are going to be performed
 	'''
 	entity = None
 
@@ -32,6 +38,11 @@ class GenericDao(object):
 
 	@classmethod
 	def get(cls, session, id):
+		'''Obtains an object from the database, serched by his id
+		Attributes:
+			session -- the SqlAlchemy session object
+			id -- the unique identifier of the object
+		'''
 		print(cls)
 		print(cls.entity)
 		return session.query(cls.entity).get(id)
@@ -47,7 +58,29 @@ class GenericDao(object):
 
 	@classmethod
 	def count(cls, session):
+		'''Count the total of objects persisted
+		 Attributes:
+			session -- the SqlAlchemy session object
+		 Returns an integer with the total rows founded
+		'''
 		return session.query(func.count(cls.entity.id)).scalar()
+
+	@classmethod
+	def find_by(cls, session, **kwargs):
+		'''Find objects by his fields
+		You can pass any number of fields in the manner of **kwargs dictionary
+		where the key represent the field to look and the value the string to look
+		Attriutes:
+		 session -- the session in which you want to perform the search.
+		 **kwargs -- filters to the search
+		'''
+		query = session.query(cls.entity)
+
+		for k, v  in kwargs.items():
+			filter_value = k + "=" + v
+			query.filter(filter_value)
+		 
+		return query.order_by(cls.entity.id).all()
 
 class SuperiorTaxonDao(GenericDao):
 	"""Perform the data acces to the superior_taxon table"""
@@ -68,18 +101,12 @@ class SuperiorTaxonDao(GenericDao):
 class BirdDao(GenericDao):
 	'''Provide the acces to the data for the Bird objects
 	'''
-
 	def __init__(self):
 		BirdDao.entity = Bird
 
-	def find_by_order(self, session, order):
-		'''Find all the birds by his order.
-		   Arguments:
-		    session -- a DbSession objet in which to perform the query
-		    order -- the order string to look for
-		'''
-		return session.query(self.entity).\
-		          filter(self.entity.order == order).\
-		          all()
 
-	
+class VarietyDao(GenericDao):
+	'''Data acces object for the Variety
+	'''
+	def __init__(self):
+		VarietyDao.entity = Variety
