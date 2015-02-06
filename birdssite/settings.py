@@ -23,11 +23,12 @@ SECRET_KEY = 'p%c^c@$50&f3s*!dikimv&)%1gx+uumw^^0kb38ipcei6-(km6'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 ALLOWED_HOSTS = []
 
-MEDIA_ROOT = '/Users/victor/MyProjects/pythonLearning/djangoProjects/birds_site/media/'
-MEDIA_URL = 'birds.victorhernandez.me/'
+MEDIA_ROOT = '/Users/victor/MyProjects/pythonLearning/birds/media/'
+MEDIA_URL = '/media/'
 # Application definition
 
 INSTALLED_APPS = (

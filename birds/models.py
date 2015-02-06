@@ -10,12 +10,18 @@ class SuperiorTaxon(models.Model):
     t_class = models.CharField(max_length=200, verbose_name='Class')
     
     def __str__(self):
-        return "SuperiorTaxon(Reign: '%s', Philum: '%s', Class = '%s')" % (
+        return "Reign: '%s', Philum: '%s', Class = '%s'" % (
         self.reino, self.philum, self.t_class)
 
-class Specimen(models.Model):
+class Order(models.Model):
+    order_name = models.CharField(max_length=200, verbose_name='Order Name')
     superior_taxon = models.ForeignKey(SuperiorTaxon, verbose_name='Higer classification')
-    order = models.CharField(max_length=200)
+
+    def __str__(self):
+        return "%s" % (self.order_name)
+
+class Specimen(models.Model):
+    order = models.ForeignKey(Order, verbose_name='Order')
     family = models.CharField(max_length=200)
     genre = models.CharField(max_length=200, verbose_name='Genus')
     species = models.CharField(max_length=200)
@@ -27,7 +33,7 @@ class Specimen(models.Model):
     
     def __str__(self):
         return  ("Specimen(Scientific Name: %s, Common name: %s)" % (
-            self.genre + " " + self.species, self.common_name))
+            self.scientific_name(), self.common_name))
 
 class Variety(models.Model):
     description = models.CharField(max_length=200, verbose_name='Description')
