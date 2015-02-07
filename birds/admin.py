@@ -1,55 +1,71 @@
 from django.contrib import admin
 from birds.models import *
 
-class VarietyInline(admin.StackedInline):
+
+class BirdInline(admin.StackedInline):
     model = Variety
     extra = 1
 
-class VarietyImagesInline(admin.TabularInline):
-    model = VarietyImages
+
+class BirdImageInline(admin.TabularInline):
+    model = BirdImage
+    fields = ['author',
+              'sighting_place',
+              'sighting_date',
+              'image']
+
 
 class SuperiorTaxonAdmin(admin.ModelAdmin):
-    fields = ['reino', 'philum', 't_class']
-    list_display = ('reino', 'philum', 't_class')
+    fields = ['reino', 'phylum', 't_class']
+    list_display = ('reino', 'phylum', 't_class')
+
 
 class OrderAdmin(admin.ModelAdmin):
-    fields = ['superior_taxon','order_name']
+    fields = ['superior_taxon', 'order_name']
     list_display = ('order_name', 'superior_taxon')
     search_fields = ['order_name']
 
+
+class FamilyAdmin(admin.ModelAdmin):
+    fields = ['order', 'name']
+    list_display = ('order', 'name')
+    search_fields = ['name']
+
+
+class GenusAdmin(admin.ModelAdmin):
+    fields = ['family', 'name']
+    list_display = ('family', 'name')
+    search_fields = ['name']
+
+
 class SpecimenAdmin(admin.ModelAdmin):
-    fields = ['order', 'family',
-              'genre', 'species', 
-              'common_name', 'bibliography']
-    list_display = ('order',
-                    'common_name', 
-                    'scientific_name', 
-                    'family', 
-                    'genre', 
-                    'species')
-    list_filter = ['family', 'genre']
-    search_fields = ['order',
-                     'common_name', 
-                     'family', 
-                     'species']
+    fields = ['genus',
+              'name',
+              'common_name',
+              'bibliography']
+    list_display = ('common_name',
+                    'scientific_name',)
+    list_filter = ['name', 'genus']
+    search_fields = ['common_name',
+                     'genus.family',
+                     'name']
+    inlines = [BirdImageInline]
+
 
 class VarietyAdmin(admin.ModelAdmin):
-    fieldsets=[
-        (None,               {'fields' : ['specimen', 'description']}),
-        ('Sight Information', {'fields' : ['sighting_place', 'sighting_date']})
+    fieldsets = [
+        (None, {'fields': ['specimen', 'name']}),
     ]
-    list_display = ('description', 
-                    'sighting_place',
-                    'sighting_date')
-    list_filter = ['sighting_date', 
-                   'sighting_place']
-    search_fields = ['description', 
-                    'sighting_place',]
+    list_display = ('specimen',
+                    'name',)
+    search_fields = ['name', ]
 
-    inlines = [VarietyImagesInline]
+    inlines = [BirdImageInline]
 
 # Register your models here
 admin.site.register(SuperiorTaxon, SuperiorTaxonAdmin)
+admin.site.register(Order, OrderAdmin)
+admin.site.register(Family, FamilyAdmin)
+admin.site.register(Genus, GenusAdmin)
 admin.site.register(Specimen, SpecimenAdmin)
 admin.site.register(Variety, VarietyAdmin)
-admin.site.register(Order, OrderAdmin)

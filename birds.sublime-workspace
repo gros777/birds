@@ -1,0 +1,644 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"For",
+				"ForeignKey"
+			],
+			[
+				"ver",
+				"verbose_name"
+			],
+			[
+				"or",
+				"order_name"
+			],
+			[
+				"def",
+				"default"
+			],
+			[
+				"mo",
+				"models"
+			],
+			[
+				"fil",
+				"filter_dict"
+			],
+			[
+				"ka",
+				"kwargs"
+			],
+			[
+				"si",
+				"sighting_date"
+			],
+			[
+				"de",
+				"description"
+			],
+			[
+				"sighting",
+				"sighting_place"
+			],
+			[
+				"bir",
+				"bird_count"
+			],
+			[
+				"Bird",
+				"BirdDao"
+			],
+			[
+				"id",
+				"identifier"
+			],
+			[
+				"Superior",
+				"SuperiorTaxonDao"
+			],
+			[
+				"Sup",
+				"SuperiorTaxonService"
+			],
+			[
+				"Se",
+				"SessionSingleton"
+			],
+			[
+				"__",
+				"__repr__"
+			],
+			[
+				"co",
+				"common_name"
+			],
+			[
+				"superior_tax",
+				"superior_taxon_id"
+			],
+			[
+				"su",
+				"superior_taxon_id"
+			],
+			[
+				"obj",
+				"object"
+			],
+			[
+				"log",
+				"logging"
+			],
+			[
+				"supe",
+				"superior_taxon"
+			],
+			[
+				"_",
+				"_session"
+			],
+			[
+				"get",
+				"get_session"
+			],
+			[
+				"_s",
+				"_session"
+			],
+			[
+				"exc",
+				"except"
+			],
+			[
+				"ta",
+				"taxon_id"
+			],
+			[
+				"sup",
+				"superior_taxon"
+			],
+			[
+				"tr",
+				"try	Try/Except/Finally"
+			],
+			[
+				"st",
+				"st_after_insert_count"
+			],
+			[
+				"st_",
+				"st_initial_count"
+			],
+			[
+				"add",
+				"addTaskElement"
+			],
+			[
+				"move",
+				"moveTask"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"app",
+				"appStorage"
+			],
+			[
+				"lo",
+				"localStorageSupported"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"mov",
+				"moveUp"
+			],
+			[
+				"m",
+				"moveDown"
+			],
+			[
+				"task",
+				"taskName"
+			],
+			[
+				"tas",
+				"task"
+			],
+			[
+				"fo",
+				"focus"
+			],
+			[
+				"u",
+				"ul	Tag"
+			],
+			[
+				"i",
+				"id"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"he",
+				"header	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "birds/models.py",
+			"settings":
+			{
+				"buffer_size": 2353,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/victor/MyProjects/pythonLearning/birds/birds/admin.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/birdssite/wsgi.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/manage.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/birdssite/settings.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/birdssite/urls.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/templates/admin/base_site.html",
+		"/Users/victor/MyProjects/pythonLearning/pub_rsaPythonAnyware.txt",
+		"/Users/victor/MyProjects/pythonLearning/birds/tests/birds_tests.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/tests/birds_daos_tests.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/birds/services.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/birds/daos.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/birds/declarative_birds.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/test.log",
+		"/Users/victor/MyProjects/pythonLearning/birds/setup.py",
+		"/Users/victor/MyProjects/pythonLearning/birds/birds/loader.py",
+		"/Users/victor/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/victor/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/victor/MyProjects/pythonLearning/birds/birds/birds.sublime-project",
+		"/Users/victor/MyProjects/Shellshock/messages/inteligence.txt",
+		"/Users/victor/MyProjects/gros777.txt",
+		"/Users/victor/MyProjects/html5/template/app.js",
+		"/Users/victor/MyProjects/html5/template/app.css",
+		"/Users/victor/MyProjects/html5/template/app.html",
+		"/Users/victor/MyProjects/Perl/salaries.sql",
+		"/Users/victor/Desktop/MYSQL_PASSWORD",
+		"/private/etc/apache2/users/victor.conf",
+		"/private/etc/apache2/extra/httpd-vhosts.conf",
+		"/private/etc/apache2/httpd.conf",
+		"/Users/victor/Sites/index.pl",
+		"/Users/victor/MyProjects/pythonLearning/pyForAll/mysite/mysite/settings.py",
+		"/Users/victor/MyProjects/pythonLearning/pyForAll/mysite/polls/models.py",
+		"/Users/victor/MyProjects/IOS/Checklist/Checklist/ChecklistViewController.m",
+		"/Users/victor/MyProjects/IOS/Checklist/Checklist/ListDetailViewController.h",
+		"/Users/victor/MyProjects/IOS/Checklist/Checklist/AllListsViewController.m",
+		"/Users/victor/MyProjects/IOS/Checklist/Checklist/ItemDetailViewController.m",
+		"/Users/victor/MyProjects/IOS/Checklist/Checklist/ItemDetailViewController.h",
+		"/Users/victor/MyProjects/IOS/Checklist/Checklist/ChecklistItem.h",
+		"/Users/victor/MyProjects/pythonLearning/pyForAll/helloworld.py",
+		"/Users/victor/Documents/declaraciones/Declaraciones enero 2014",
+		"/Users/victor/MyProjects/todos.txt",
+		"/Users/victor/WorkBcr/Documentos/SIMP/PruebasPagoElectronico/resultadoBateriaPruebas.csv",
+		"/Users/victor/WorkBcr/Documentos/SIMP/PruebasPagoElectronico/bateriaPruebas.csv",
+		"/Users/victor/WorkBcr/Documentos/SIMP/PruebasPagoElectronico/Resultado pruebas pago electrónico SIMP",
+		"/Users/victor/WorkBcr/Workspace/sicex-ws-ext-client/src/bcr/cliente/xml/generated/PagoCliente.java",
+		"/Users/victor/WorkBcr/Documentos/SIMP/PruebasPagoElectronico/PagoElectronicoSimp-soapui-project.xml",
+		"/Users/victor/WorkBcr/Documentos/SIMP/PruebasPagoElectronico/confirmacionPago.xml",
+		"/private/var/folders/84/7s8js0r1103g5_3t0b6b9rl80000gn/T/com.blackpixel.versions/PagoClienteWebServiceImplService.revHEAD.java",
+		"/private/var/folders/84/7s8js0r1103g5_3t0b6b9rl80000gn/T/com.blackpixel.versions/Client.revHEAD.java",
+		"/private/etc/hosts",
+		"/Users/victor/WorkBcr/Workspace/SSEC/SSEC-TrunkG/pom.xml",
+		"/Users/victor/WorkBcr/Workspace/SSEC/SSEC-TrunkG/bcr-seguridad-core/src/main/java/bcr/seguridad/dao/impl/RolDaoImpl.java",
+		"/Users/victor/WorkBcr/Documentos/SIMP/propuestaIdQuemado.txt",
+		"/Users/victor/WorkBcr/Workspace/LBTR-1.5.0/lbtr-core/src/main/java/gob/sv/bcr/lbtr/service/impl/NotificacionServiceImpl.java",
+		"/Users/victor/WorkBcr/bcr.sh",
+		"/Users/victor/WorkBcr/Workspace/SIMP/simp_publico/simp-view/src/main/webapp/WEB-INF/pages/public/areapublica/mensaje.jsp",
+		"/Users/victor/Library/Mail/V2/MailData/Accounts.plist"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open files>",
+			"",
+			"<open files>",
+			"",
+			"Resultado pruebas pago electrónico SIMP",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"template_dir",
+			"find_by",
+			"superior_taxon_id",
+			"superior_taxon_id'))\nsuperior_taxon_id",
+			"superior_taxon_id'))\n*superior_taxon_id*",
+			"superior_taxon_id'))\nsuperior_taxon_id",
+			"_session",
+			"self._session",
+			"session",
+			"_st_dao",
+			"tab",
+			"inde",
+			"contains",
+			"addTaskElement",
+			"_datePickerVisible",
+			"NSIndexPath",
+			"sqlite",
+			", ,",
+			".00000",
+			"\"",
+			"\"\"",
+			"\"null\"",
+			"36",
+			"notificar"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"id",
+			"self._session",
+			"_session",
+			"self._session",
+			",,",
+			".00",
+			"",
+			"\"\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "birds/models.py",
+					"settings":
+					{
+						"buffer_size": 2353,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1741,
+								1741
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"codeintel": true,
+							"codeintel_database_dir": "~/.codeintel",
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Node.js",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_exclude_scopes_from_complete_triggers":
+							[
+								"comment"
+							],
+							"codeintel_language_settings":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_exclude_dir":
+									[
+										"/build/",
+										"/min/"
+									],
+									"codeintel_scan_extra_dir":
+									[
+									],
+									"codeintel_scan_files_in_project": false,
+									"codeintel_selected_catalogs":
+									[
+										"jQuery"
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 15.0,
+									"codeintel_scan_exclude_dir":
+									[
+										"/Applications/MAMP/bin/php/php5.5.3/"
+									],
+									"codeintel_scan_extra_dir":
+									[
+									],
+									"codeintel_scan_files_in_project": true,
+									"php": "/Applications/MAMP/bin/php/php5.5.3/bin/php"
+								},
+								"Python3":
+								{
+									"codeintel_scan_extra_dir":
+									[
+										"/Applications/Sublime Text.app/Contents/MacOS",
+										"~/Library/Application Support/Sublime Text 3/Packages/SublimeCodeIntel/arch",
+										"~/Library/Application Support/Sublime Text 3/Packages/SublimeCodeIntel/libs"
+									],
+									"codeintel_scan_files_in_project": true,
+									"codeintel_selected_catalogs":
+									[
+									],
+									"python3": "/usr/local/bin/python3.3"
+								}
+							},
+							"codeintel_live": true,
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							[
+							],
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"codeintel_word_completions": "buffer",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 334.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 182.0,
+	"status_bar_visible": true
+}

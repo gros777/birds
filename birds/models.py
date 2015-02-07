@@ -6,58 +6,66 @@ from django.utils import timezone
 
 class SuperiorTaxon(models.Model):
     reino = models.CharField(max_length=200, verbose_name='Kingdom')
-    philum = models.CharField(max_length=200, verbose_name='Phylum')
+    phylum = models.CharField(max_length=200, verbose_name='Phylum')
     t_class = models.CharField(max_length=200, verbose_name='Class')
-    
+
     def __str__(self):
-        return "Reign: '%s', Philum: '%s', Class = '%s'" % (
-        self.reino, self.philum, self.t_class)
+        return "Reign: '%s', Phylum: '%s', Class = '%s'" % (
+            self.reino, self.phylum, self.t_class)
+
 
 class Order(models.Model):
-    order_name = models.CharField(max_length=200, verbose_name='Order Name')
+    order_name = models.CharField(max_length=200, verbose_name='Order')
     superior_taxon = models.ForeignKey(SuperiorTaxon, verbose_name='Higer classification')
 
     def __str__(self):
-        return "%s" % (self.order_name)
+        return "%s" % self.order_name
+
+
+class Family(models.Model):
+    name = models.CharField(max_length=200, verbose_name='Family')
+    order = models.ForeignKey(Order)
+
+    def __str__(self):
+        return "%s" % self.name
+
+
+class Genus(models.Model):
+    name = models.CharField(max_length=200, verbose_name='Genus')
+    family = models.ForeignKey(Family, unique=False)
+
+    def __str__(self):
+        return "%s" % self.name
+
 
 class Specimen(models.Model):
-    order = models.ForeignKey(Order, verbose_name='Order')
-    family = models.CharField(max_length=200)
-    genre = models.CharField(max_length=200, verbose_name='Genus')
-    species = models.CharField(max_length=200)
+    genus = models.ForeignKey(Genus)
+    name = models.CharField(max_length=200, verbose_name='Specimen')
     common_name = models.CharField(max_length=200)
     bibliography = models.CharField(max_length=200)
 
     def scientific_name(self):
-        return self.genre + ' ' + self.species
-    
+        return self.genus.name + ' ' + self.name
+
     def __str__(self):
-        return  ("Specimen(Scientific Name: %s, Common name: %s)" % (
+        return ("Specimen(Scientific Name: %s, Common name: %s)" % (
             self.scientific_name(), self.common_name))
 
+
 class Variety(models.Model):
-    description = models.CharField(max_length=200, verbose_name='Description')
-    sighting_place = models.CharField(max_length=200, verbose_name='Place of Sight')
-    sighting_date = models.DateTimeField('Date of Sight')
+    name = models.CharField(max_length=200, verbose_name='Var')
     specimen = models.ForeignKey(Specimen)
-    
-    # bynary field management
-    # _image = models.CharField(db_column='image',
-    #         blank=True)
-    # def set_image(self, image):
-    #     self._image = base64.encodestring(data)
-
-    # def get_image(self):
-    #     return base64.decodestring(self._image)
-
-    # image = property(get_image, set_image)
 
     def __str__(self):
-        return ("Variety(%s, Sight place: %s)" % (
-                self.description, self.sighting_place))
+        return ("%s, Var %s" % (
+            self.specimen.name, self.name))
 
-class VarietyImages(models.Model):
-    variety = models.ForeignKey(Variety)
-    name = models.CharField(max_length=200)
+
+# Implement some validation to verified that at least one of the foreign key be added
+class BirdImage(models.Model):
+    variety = models.ForeignKey(Variety, null=True, blank=True)
+    specimen = models.ForeignKey(Specimen, null=True, blank=True)
     author = models.CharField(max_length=200)
+    sighting_place = models.CharField(max_length=200, verbose_name='Place of Sight', null=True)
+    sighting_date = models.DateTimeField('Date of Sight', null=True)
     image = models.ImageField(upload_to='images')
